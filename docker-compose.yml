@@ -1,0 +1,16 @@
+services:
+  anki-sync-server:
+    image: anki-sync-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    #ports:
+    #  - 8080:8080
+    environment:
+      - SYNC_USER1=user:pass
+      #- SYNC_USER2=user2:pass2
+      #- etc...
+      - SYNC_BASE=/syncserver
+    volumes:
+      - ./syncserver:/syncserver
